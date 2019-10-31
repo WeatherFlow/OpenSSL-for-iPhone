@@ -36,12 +36,12 @@ class ViewController: UIViewController {
         self.calculateHash()
     }
     
-    func textFieldDidChange() {
+    @objc func textFieldDidChange() {
         self.calculateHash()
     }
 
     func calculateHash() {
-        if textField.text!.characters.count > 0 {
+        if textField.text!.count > 0 {
             md5Label.text = FSOpenSSL.md5(from: textField.text)
             sh256Label.text = FSOpenSSL.sha256(from: textField.text)
         }
